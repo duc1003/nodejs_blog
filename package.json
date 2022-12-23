@@ -2,10 +2,13 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "nodejs blog by duc",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "prettier": "lint-staged",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pre-commit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -23,8 +26,20 @@
     "url": "https://github.com/duc1003/nodejs_blog/issues"
   },
   "homepage": "https://github.com/duc1003/nodejs_blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4"
+  },
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^2.0.20"
+    "express-handlebars": "^6.0.6"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.2.3",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "morgan": "^1.10.0",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.1"
   }
 }
